@@ -16,7 +16,7 @@ function Sidebar() {
 
         <li>
           <Link to="/upload">
-            Upload PDF
+            📄 Upload PDF
           </Link>
         </li>
 
