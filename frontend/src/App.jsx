@@ -4,6 +4,7 @@ import Login from "./pages/Login";
 import Register from "./pages/Register";
 import Dashboard from "./pages/Dashboard";
 import UploadPdf from "./pages/UploadPdf";
+import ChatPdf from "./pages/ChatPdf";
 
 function App() {
   return (
@@ -32,6 +33,7 @@ function App() {
           path="/upload"
           element={<UploadPdf />}
         />
+        <Route path="/chat" element={<ChatPdf />} />
       </Routes>
     </BrowserRouter>
   );
