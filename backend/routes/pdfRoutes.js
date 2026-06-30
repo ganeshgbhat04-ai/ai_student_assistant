@@ -1,25 +1,22 @@
 const express = require("express");
 const router = express.Router();
-
 const upload = require("../middleware/uploadMiddleware");
-
+const { protect } = require("../middleware/auth");
 const {
   uploadPdf,
   getAllPdfs,
   getPdfById,
+  deletePdf,
+  summarizePdf,
 } = require("../controllers/pdfController");
 
-// Upload PDF
-router.post(
-  "/upload",
-  upload.single("pdf"),
-  uploadPdf
-);
+// Secure all PDF routes
+router.use(protect);
 
-// Get all PDFs
+router.post("/upload", upload.single("pdf"), uploadPdf);
 router.get("/", getAllPdfs);
-
-// Get single PDF
 router.get("/:id", getPdfById);
+router.delete("/:id", deletePdf);
+router.post("/:id/summarize", summarizePdf);
 
 module.exports = router;

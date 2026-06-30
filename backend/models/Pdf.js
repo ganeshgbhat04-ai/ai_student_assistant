@@ -2,6 +2,12 @@ const mongoose = require("mongoose");
 
 const pdfSchema = new mongoose.Schema(
   {
+    userId: {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "User",
+      required: true,
+    },
+
     fileName: {
       type: String,
       required: true,
@@ -20,6 +26,11 @@ const pdfSchema = new mongoose.Schema(
     chunks: {
       type: [String],
       default: [],
+    },
+
+    summary: {
+      type: String,
+      default: "",
     },
   },
   {
